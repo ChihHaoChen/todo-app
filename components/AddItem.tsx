@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Button, View, StyleSheet } from "react-native";
-import { TextInput } from "../components/Themed";
+import { TextInput } from "./Themed";
 import { useTodoContext } from "../store";
 
 export default function AddItem() {
@@ -13,6 +13,7 @@ export default function AddItem() {
         onChangeText={(text) => setNewTodo(text)}
         style={styles.input}
         placeholder="Add a new todo item"
+        testID="item-input"
       />
       <Button onPress={() => addTodo()} title={"Add"} />
     </View>

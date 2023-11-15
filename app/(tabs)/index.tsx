@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
-import TodoList from "../../view/TodoList";
-import { Text, View } from "../../components/Themed";
+import { View, TodoList } from "../../components";
 
 export default function TabOneScreen() {
   return (

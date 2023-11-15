@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import Checkbox from "expo-checkbox";
 import { Button, View, StyleSheet } from "react-native";
-import { TextInput } from "../components/Themed";
+import { TextInput } from "./Themed";
 import { Todo, useTodoContext } from "../store";
 
 export default function TodoList() {

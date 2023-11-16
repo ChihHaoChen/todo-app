@@ -13,7 +13,6 @@ export default function AddItem() {
         onChangeText={(text) => setNewTodo(text)}
         style={styles.input}
         placeholder="Add a new todo item"
-        testID="item-input"
       />
       <Button onPress={() => addTodo()} title={"Add"} />
     </View>

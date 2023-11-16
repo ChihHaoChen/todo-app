@@ -38,7 +38,7 @@ const addTodo = (todos: Todo[], text: string): Todo[] => [
 ];
 
 // Custom hook
-const useTodos = (initial: Todo[] = []) => {
+export const useTodos = (initial: Todo[] = []) => {
   const [todos, setTodos] = useState<Todo[]>(initial);
   const [newTodo, setNewTodo] = useState<string>("");
 
@@ -62,8 +62,12 @@ const TodoContext = createContext<ReturnType<typeof useTodos> | null>(null);
 
 export const useTodoContext = () => useContext(TodoContext)!;
 
-export function TodoProvider({ children }: { children: ReactNode }) {
-  return (
-    <TodoContext.Provider value={useTodos([])}>{children}</TodoContext.Provider>
-  );
+export function TodoProvider({
+  children,
+  value,
+}: {
+  children: ReactNode;
+  value: ReturnType<typeof useTodos>;
+}) {
+  return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;
 }

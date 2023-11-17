@@ -7,7 +7,7 @@ it("renders the AddItem component correctly", () => {
   const setNewTodo = jest.fn();
   const addTodo = jest.fn();
   const updateTodo = jest.fn();
-  const removeTodo = jest.fn();
+  const deleteTodo = jest.fn();
   const toggleTodo = jest.fn();
   const load = jest.fn();
   const todos: Todo[] = [];
@@ -19,7 +19,7 @@ it("renders the AddItem component correctly", () => {
       setNewTodo: setNewTodo,
       addTodo: addTodo,
       updateTodo: updateTodo,
-      removeTodo: removeTodo,
+      deleteTodo: deleteTodo,
       toggleTodo: toggleTodo,
       load: load,
     },
@@ -33,7 +33,7 @@ it("Adding items with correct functions being called", () => {
   const setNewTodo = jest.fn();
   const addTodo = jest.fn();
   const updateTodo = jest.fn();
-  const removeTodo = jest.fn();
+  const deleteTodo = jest.fn();
   const toggleTodo = jest.fn();
   const load = jest.fn();
   const todos: Todo[] = [];
@@ -45,7 +45,7 @@ it("Adding items with correct functions being called", () => {
       setNewTodo: setNewTodo,
       addTodo: addTodo,
       updateTodo: updateTodo,
-      removeTodo: removeTodo,
+      deleteTodo: deleteTodo,
       toggleTodo: toggleTodo,
       load: load,
     },

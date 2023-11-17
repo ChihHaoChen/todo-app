@@ -59,7 +59,7 @@ describe("useTodos", () => {
     ];
     const { result } = renderHook(() => useTodos(todos));
     act(() => {
-      result.current.removeTodo(1);
+      result.current.deleteTodo(1);
     });
     expect(result.current.todos).toEqual([
       { id: 2, text: "Todo 2", done: true },

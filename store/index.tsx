@@ -25,7 +25,7 @@ const toggleTodo = (todos: Todo[], id: number): Todo[] =>
     done: todo.id === id ? !todo.done : todo.done,
   }));
 
-const removeTodo = (todos: Todo[], id: number): Todo[] =>
+const deleteTodo = (todos: Todo[], id: number): Todo[] =>
   todos.filter((todo) => todo.id !== id);
 
 const addTodo = (todos: Todo[], text: string): Todo[] => [
@@ -52,7 +52,7 @@ export const useTodos = (initial: Todo[] = []) => {
     }, [newTodo]),
     updateTodo: (id: number, text: string) =>
       setTodos((tl) => updateTodo(tl, id, text)),
-    removeTodo: (id: number) => setTodos((tl) => removeTodo(tl, id)),
+    deleteTodo: (id: number) => setTodos((tl) => deleteTodo(tl, id)),
     toggleTodo: (id: number) => setTodos((tl) => toggleTodo(tl, id)),
     load: (newTodos: Todo[]) => setTodos(newTodos),
   };

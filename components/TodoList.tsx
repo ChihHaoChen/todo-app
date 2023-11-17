@@ -5,7 +5,7 @@ import { TextInput } from "./Themed";
 import { Todo, useTodoContext } from "../store";
 
 export default function TodoList() {
-  const { todos, toggleTodo, updateTodo, removeTodo } = useTodoContext();
+  const { todos, toggleTodo, updateTodo, deleteTodo } = useTodoContext();
 
   return (
     <View style={styles.listContainer}>
@@ -13,14 +13,20 @@ export default function TodoList() {
         <View key={todo.id} style={styles.listRow}>
           <TextInput
             value={todo.text}
-            onChangeText={(text) => updateTodo && updateTodo(todo.id, text)}
+            onChangeText={(text) => updateTodo(todo.id, text)}
             style={styles.input}
+            testID="list-input"
           />
           <Checkbox
             onValueChange={() => toggleTodo(todo.id)}
             value={todo.done}
+            testID={`list-checkbox-${todo.id}`}
           />
-          <Button onPress={() => removeTodo(todo.id)} title={"Delete"} />
+          <Button
+            onPress={() => deleteTodo(todo.id)}
+            title={"Delete"}
+            testID={`list-delete-button-${todo.id}`}
+          />
         </View>
       ))}
     </View>

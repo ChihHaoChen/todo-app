@@ -53,7 +53,7 @@ export default function TabTwoScreen() {
       field: "lock",
       renderCell: (
         <FontAwesome
-          name="lock"
+          name={lockedState ? "lock" : "unlock"}
           size={24}
           color={Colors[colorScheme ?? "light"].text}
         />
@@ -65,7 +65,7 @@ export default function TabTwoScreen() {
       field: "login",
       renderCell: (
         <FontAwesome
-          name="user"
+          name="user-circle-o"
           size={24}
           color={Colors[colorScheme ?? "light"].text}
         />

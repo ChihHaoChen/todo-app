@@ -16,6 +16,7 @@ specifiers:
   expo-checkbox: ^2.5.0
   expo-font: ~11.4.0
   expo-linking: ~5.0.2
+  expo-local-authentication: ^13.6.0
   expo-router: ^2.0.0
   expo-splash-screen: ~0.20.5
   expo-status-bar: ~1.6.0
@@ -40,6 +41,7 @@ dependencies:
   expo-checkbox: 2.5.0
   expo-font: 11.4.0_expo@49.0.18
   expo-linking: 5.0.2_expo@49.0.18
+  expo-local-authentication: 13.6.0_expo@49.0.18
   expo-router: 2.0.12_ujm4kv4o54j3t5yhvrfvzcv3sm
   expo-splash-screen: 0.20.5_expo@49.0.18
   expo-status-bar: 1.6.0
@@ -4083,6 +4085,15 @@ packages:
     transitivePeerDependencies:
       - expo
       - supports-color
+    dev: false
+
+  /expo-local-authentication/13.6.0_expo@49.0.18:
+    resolution: {integrity: sha512-kvM3oZc+K0xHMBFdNAVEVUbynaq0A2coqxk8kECx25hJ3vxgIY1Dktx+UD6Y+H9zMyQwYtcGhRPW4BOK1cqRuA==}
+    peerDependencies:
+      expo: '*'
+    dependencies:
+      expo: 49.0.18_@babel+core@7.23.3
+      invariant: 2.2.4
     dev: false
 
   /expo-modules-autolinking/1.5.1:

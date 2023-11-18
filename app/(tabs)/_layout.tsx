@@ -1,8 +1,8 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
 import { Pressable, useColorScheme } from "react-native";
-
 import Colors from "../../constants/Colors";
+import { useTodoContext } from "../../store";
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -16,6 +16,7 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const { locked } = useTodoContext();
 
   return (
     <Tabs
@@ -27,13 +28,15 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "Todo Items",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="list-ul" color={color} />
+          ),
           headerRight: () => (
             <Link href="/modal" asChild>
-              <Pressable>
+              <Pressable pointerEvents={locked ? "none" : "auto"}>
                 {({ pressed }) => (
                   <FontAwesome
-                    name="info-circle"
+                    name="plus-square-o"
                     size={25}
                     color={Colors[colorScheme ?? "light"].text}
                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
@@ -45,10 +48,10 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="user"
+        name="settings"
         options={{
-          title: "User Profile",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: "Settings",
+          tabBarIcon: ({ color }) => <TabBarIcon name="gears" color={color} />,
         }}
       />
     </Tabs>

@@ -5,6 +5,7 @@ import { customRender } from "../../__test__/test-utils";
 
 it("renders the TodoList items correctly", () => {
   const setNewTodo = jest.fn();
+  const setLocked = jest.fn();
   const addTodo = jest.fn();
   const updateTodo = jest.fn();
   const deleteTodo = jest.fn();
@@ -19,6 +20,8 @@ it("renders the TodoList items correctly", () => {
     value: {
       todos,
       newTodo: "",
+      locked: true,
+      setLocked: setLocked,
       setNewTodo: setNewTodo,
       addTodo: addTodo,
       updateTodo: updateTodo,
@@ -35,6 +38,7 @@ it("renders the TodoList items correctly", () => {
 
 it("ensure the toggle function toggleTodo can be called ", () => {
   const setNewTodo = jest.fn();
+  const setLocked = jest.fn();
   const addTodo = jest.fn();
   const updateTodo = jest.fn();
   const deleteTodo = jest.fn();
@@ -49,6 +53,8 @@ it("ensure the toggle function toggleTodo can be called ", () => {
     value: {
       todos,
       newTodo: "",
+      locked: false,
+      setLocked: setLocked,
       setNewTodo: setNewTodo,
       addTodo: addTodo,
       updateTodo: updateTodo,
@@ -66,6 +72,7 @@ it("ensure the toggle function toggleTodo can be called ", () => {
 
 it("ensure the delete function deleteTodo can be called ", () => {
   const setNewTodo = jest.fn();
+  const setLocked = jest.fn();
   const addTodo = jest.fn();
   const updateTodo = jest.fn();
   const deleteTodo = jest.fn();
@@ -80,6 +87,8 @@ it("ensure the delete function deleteTodo can be called ", () => {
     value: {
       todos,
       newTodo: "",
+      locked: false,
+      setLocked: setLocked,
       setNewTodo: setNewTodo,
       addTodo: addTodo,
       updateTodo: updateTodo,
@@ -97,6 +106,7 @@ it("ensure the delete function deleteTodo can be called ", () => {
 
 it("ensure the update function updateTodo can be called ", () => {
   const setNewTodo = jest.fn();
+  const setLocked = jest.fn();
   const addTodo = jest.fn();
   const updateTodo = jest.fn();
   const deleteTodo = jest.fn();
@@ -112,6 +122,8 @@ it("ensure the update function updateTodo can be called ", () => {
       todos,
       newTodo: "",
       setNewTodo: setNewTodo,
+      locked: false,
+      setLocked: setLocked,
       addTodo: addTodo,
       updateTodo: updateTodo,
       deleteTodo: deleteTodo,

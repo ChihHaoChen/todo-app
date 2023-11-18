@@ -5,6 +5,7 @@ import { customRender } from "../../__test__/test-utils";
 
 it("renders the AddItem component correctly", () => {
   const setNewTodo = jest.fn();
+  const setLocked = jest.fn();
   const addTodo = jest.fn();
   const updateTodo = jest.fn();
   const deleteTodo = jest.fn();
@@ -16,6 +17,8 @@ it("renders the AddItem component correctly", () => {
     value: {
       todos,
       newTodo: "",
+      locked: false,
+      setLocked: setLocked,
       setNewTodo: setNewTodo,
       addTodo: addTodo,
       updateTodo: updateTodo,
@@ -31,6 +34,7 @@ it("renders the AddItem component correctly", () => {
 
 it("Adding items with correct functions being called", () => {
   const setNewTodo = jest.fn();
+  const setLocked = jest.fn();
   const addTodo = jest.fn();
   const updateTodo = jest.fn();
   const deleteTodo = jest.fn();
@@ -42,6 +46,8 @@ it("Adding items with correct functions being called", () => {
     value: {
       todos,
       newTodo: "",
+      locked: false,
+      setLocked: setLocked,
       setNewTodo: setNewTodo,
       addTodo: addTodo,
       updateTodo: updateTodo,

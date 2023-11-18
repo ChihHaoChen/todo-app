@@ -1,12 +1,13 @@
+import { useEffect } from "react";
+import { useFonts } from "expo-font";
+import { SplashScreen, Stack } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
   DarkTheme,
   DefaultTheme,
   ThemeProvider,
+  useNavigation,
 } from "@react-navigation/native";
-import { useFonts } from "expo-font";
-import { SplashScreen, Stack } from "expo-router";
-import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 import { TodoProvider, useTodos } from "../store";
 
@@ -49,6 +50,7 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
+  const navigation = useNavigation();
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
@@ -57,7 +59,18 @@ function RootLayoutNav() {
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen
             name="modal"
-            options={{ presentation: "modal", headerTitle: "Add New Items" }}
+            options={{
+              presentation: "modal",
+              headerTitle: "Add New Items",
+              headerLeft: () => (
+                <FontAwesome
+                  name="chevron-left"
+                  size={20}
+                  color={"#2196f3"}
+                  onPress={() => navigation.goBack()}
+                />
+              ),
+            }}
           />
         </Stack>
       </TodoProvider>

@@ -46,7 +46,7 @@ This repo is built with Expo offered template for screen with tabs. As a result,
 
 ### Screen 1 - List of The Todo Items (index.tsx)
 
-Here shows the captured screenshots in unlocked state (left), and in locked state(right). All the operations initially need users to use their biometric Ids or passwords in their devices to unlock the operations. If in locked state, a popover would prompt users to unlock the operations in the second screen. 
+Here shows the captured screenshots in unlocked state (the first), and in locked state(the second). All the operations initially need users to use their biometric Ids or passwords in their devices to unlock the operations. If in locked state, a popover would prompt users to unlock the operations in the second screen. 
 
 ![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-19 at 22.09.32.png](screenshots/Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2023-11-19_at_22.09.32.png)
 
@@ -58,9 +58,9 @@ The second screen only shows the lock/unlocked state and its switch. Either to t
 
 ![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-19 at 23.08.00.png](screenshots/Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2023-11-19_at_23.08.00.png)
 
-![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-19 at 23.10.01.png](screenshots/Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2023-11-19_at_23.10.01.png)
-
 ![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-19 at 23.08.08.png](screenshots/Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2023-11-19_at_23.08.08.png)
+
+![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-19 at 23.10.01.png](screenshots/Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2023-11-19_at_23.10.01.png)
 
 ### Screen 3 - Modal (modal.tsx)
 

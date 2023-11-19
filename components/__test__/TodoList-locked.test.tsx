@@ -3,7 +3,7 @@ import TodoList from "../TodoList";
 import { Todo } from "../../store";
 import { customRender } from "../../__test__/test-utils";
 
-it("renders the TodoList items correctly", () => {
+it("renders the TodoList items correctly when locked", () => {
   const setNewTodo = jest.fn();
   const setLocked = jest.fn();
   const addTodo = jest.fn();
@@ -20,7 +20,7 @@ it("renders the TodoList items correctly", () => {
     value: {
       todos,
       newTodo: "",
-      locked: false,
+      locked: true,
       setLocked: setLocked,
       setNewTodo: setNewTodo,
       addTodo: addTodo,
@@ -36,7 +36,7 @@ it("renders the TodoList items correctly", () => {
   expect(view.getByDisplayValue("Todo 2nd item")).toBeDefined();
 });
 
-it("ensure the toggle function toggleTodo can be called ", () => {
+it("ensure the toggle function toggleTodo cannot be triggered when locked ", () => {
   const setNewTodo = jest.fn();
   const setLocked = jest.fn();
   const addTodo = jest.fn();
@@ -53,7 +53,7 @@ it("ensure the toggle function toggleTodo can be called ", () => {
     value: {
       todos,
       newTodo: "",
-      locked: false,
+      locked: true,
       setLocked: setLocked,
       setNewTodo: setNewTodo,
       addTodo: addTodo,
@@ -67,10 +67,10 @@ it("ensure the toggle function toggleTodo can be called ", () => {
   const checkbox = view.getAllByTestId("list-checkbox-1")[0];
   expect(checkbox).toBeTruthy();
   fireEvent.press(checkbox);
-  expect(toggleTodo).toHaveBeenCalled();
+  expect(toggleTodo).not.toHaveBeenCalled();
 });
 
-it("ensure the delete function deleteTodo can be called ", () => {
+it("ensure the delete function deleteTodo cannot be triggered when locked ", () => {
   const setNewTodo = jest.fn();
   const setLocked = jest.fn();
   const addTodo = jest.fn();
@@ -87,7 +87,7 @@ it("ensure the delete function deleteTodo can be called ", () => {
     value: {
       todos,
       newTodo: "",
-      locked: false,
+      locked: true,
       setLocked: setLocked,
       setNewTodo: setNewTodo,
       addTodo: addTodo,
@@ -101,10 +101,10 @@ it("ensure the delete function deleteTodo can be called ", () => {
   const removeButton = view.getAllByTestId("list-delete-button-1")[0];
   expect(removeButton).toBeTruthy();
   fireEvent.press(removeButton);
-  expect(deleteTodo).toHaveBeenCalled();
+  expect(deleteTodo).not.toHaveBeenCalled();
 });
 
-it("ensure the update function updateTodo can be called ", () => {
+it("ensure the update function updateTodo cannot be triggered when locked ", () => {
   const setNewTodo = jest.fn();
   const setLocked = jest.fn();
   const addTodo = jest.fn();
@@ -122,7 +122,7 @@ it("ensure the update function updateTodo can be called ", () => {
       todos,
       newTodo: "",
       setNewTodo: setNewTodo,
-      locked: false,
+      locked: true,
       setLocked: setLocked,
       addTodo: addTodo,
       updateTodo: updateTodo,
@@ -135,6 +135,5 @@ it("ensure the update function updateTodo can be called ", () => {
   const firstInput = view.getByDisplayValue("Todo 1st item");
   expect(firstInput).toBeDefined();
   fireEvent.changeText(firstInput, "Todo 1st item updated");
-  expect(updateTodo).toHaveBeenCalled();
-  expect(updateTodo).toHaveBeenCalledWith(1, "Todo 1st item updated");
+  expect(updateTodo).not.toHaveBeenCalled();
 });

@@ -1,8 +1,8 @@
+import { useCallback, useEffect, useState } from "react";
 import { StyleSheet, Switch, useColorScheme } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Text, View } from "../../components/Themed";
 import * as LocalAuthentication from "expo-local-authentication";
-import { useCallback, useEffect, useState } from "react";
 import { useTodoContext } from "../../store";
 import Colors from "../../constants/Colors";
 
@@ -39,13 +39,14 @@ export default function TabTwoScreen() {
     }
   }, [isAuthenticated]);
 
-  const onToggleLock = async () => {
+  const onToggleLock = useCallback(async () => {
     if (!isAuthenticated) {
       await onAuthenticate();
     }
     setLockedState(!lockedState);
     setLocked(!lockedState);
-  };
+    setIsAuthenticated(false);
+  }, [isAuthenticated, lockedState]);
 
   const settingRows = [
     {
@@ -61,20 +62,6 @@ export default function TabTwoScreen() {
       ),
       switchValue: lockedState,
       onChange: onToggleLock,
-    },
-    {
-      field: "authentication",
-      renderCell: (
-        <View style={styles.iconContainer}>
-          <FontAwesome
-            name="user-circle-o"
-            size={24}
-            color={Colors[colorScheme ?? "light"].text}
-          />
-        </View>
-      ),
-      switchValue: isAuthenticated,
-      onChange: onAuthenticate,
     },
   ];
 

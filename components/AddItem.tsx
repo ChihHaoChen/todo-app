@@ -1,6 +1,5 @@
-import * as React from "react";
-import { Button, View, StyleSheet } from "react-native";
-import { TextInput } from "./Themed";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { TextInput, Text } from "./Themed";
 import { useTodoContext } from "../store";
 
 export default function AddItem() {
@@ -13,8 +12,11 @@ export default function AddItem() {
         onChangeText={(text) => setNewTodo(text)}
         style={styles.input}
         placeholder="Add a new todo item"
+        aria-disabled={false}
       />
-      <Button onPress={() => addTodo()} title={"Add"} />
+      <TouchableOpacity onPress={() => addTodo()} style={styles.button}>
+        <Text>{"Add"}</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -34,5 +36,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     padding: 8,
+  },
+  button: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 32,
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 4,
+    elevation: 3,
+    borderWidth: 1,
   },
 });

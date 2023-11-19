@@ -41,11 +41,14 @@ const addTodo = (todos: Todo[], text: string): Todo[] => [
 export const useTodos = (initial: Todo[] = []) => {
   const [todos, setTodos] = useState<Todo[]>(initial);
   const [newTodo, setNewTodo] = useState<string>("");
+  const [locked, setLocked] = useState<boolean>(true);
 
   return {
     todos,
     newTodo,
     setNewTodo,
+    locked,
+    setLocked,
     addTodo: useCallback(() => {
       setTodos((tl) => addTodo(tl, newTodo));
       setNewTodo("");

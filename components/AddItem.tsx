@@ -1,5 +1,4 @@
-import * as React from "react";
-import { View, StyleSheet, Pressable } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { TextInput, Text } from "./Themed";
 import { useTodoContext } from "../store";
 
@@ -15,11 +14,9 @@ export default function AddItem() {
         placeholder="Add a new todo item"
         aria-disabled={false}
       />
-      <View>
-        <Pressable onPress={() => addTodo()} style={styles.button}>
-          <Text>{"Add"}</Text>
-        </Pressable>
-      </View>
+      <TouchableOpacity onPress={() => addTodo()} style={styles.button}>
+        <Text>{"Add"}</Text>
+      </TouchableOpacity>
     </View>
   );
 }

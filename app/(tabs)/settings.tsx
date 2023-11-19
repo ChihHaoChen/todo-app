@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Switch, useColorScheme } from "react-native";
+import { StyleSheet, Switch, useColorScheme } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Text, View } from "../../components/Themed";
 import * as LocalAuthentication from "expo-local-authentication";
@@ -8,7 +8,7 @@ import Colors from "../../constants/Colors";
 
 export default function TabTwoScreen() {
   const colorScheme = useColorScheme();
-  const [isBiometricAvailable, setIsBiometricAvailable] = useState(false);
+  const [_, setIsBiometricAvailable] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [lockedState, setLockedState] = useState(true);
   const { setLocked } = useTodoContext();
@@ -43,7 +43,6 @@ export default function TabTwoScreen() {
     if (!isAuthenticated) {
       await onAuthenticate();
     }
-
     setLockedState(!lockedState);
     setLocked(!lockedState);
   };
@@ -52,23 +51,27 @@ export default function TabTwoScreen() {
     {
       field: "lock",
       renderCell: (
-        <FontAwesome
-          name={lockedState ? "lock" : "unlock"}
-          size={24}
-          color={Colors[colorScheme ?? "light"].text}
-        />
+        <View style={styles.iconContainer}>
+          <FontAwesome
+            name={lockedState ? "lock" : "unlock"}
+            size={24}
+            color={Colors[colorScheme ?? "light"].lock}
+          />
+        </View>
       ),
       switchValue: lockedState,
       onChange: onToggleLock,
     },
     {
-      field: "login",
+      field: "authentication",
       renderCell: (
-        <FontAwesome
-          name="user-circle-o"
-          size={24}
-          color={Colors[colorScheme ?? "light"].text}
-        />
+        <View style={styles.iconContainer}>
+          <FontAwesome
+            name="user-circle-o"
+            size={24}
+            color={Colors[colorScheme ?? "light"].text}
+          />
+        </View>
       ),
       switchValue: isAuthenticated,
       onChange: onAuthenticate,
@@ -109,7 +112,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     width: "100%",
-    height: 40,
+    height: 32,
     margin: 4,
     paddingHorizontal: 8,
   },
@@ -118,12 +121,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    gap: 16,
-    width: 80,
+    gap: 8,
+    width: 160,
+  },
+  iconContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: 32,
+    width: 32,
   },
   title: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "bold",
+    textTransform: "capitalize",
   },
   separator: {
     marginVertical: 30,

@@ -23,6 +23,9 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
       }}
+      sceneContainerStyle={{
+        backgroundColor: Colors[colorScheme ?? "light"].background,
+      }}
     >
       <Tabs.Screen
         name="index"

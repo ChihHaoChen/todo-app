@@ -8,9 +8,9 @@ import {
 } from "react-native";
 import Checkbox from "expo-checkbox";
 import { FontAwesome } from "@expo/vector-icons";
-import { TextInput } from "./Themed";
+import { TextInput, Text } from "./Themed";
 import { Todo, useTodoContext } from "../store";
-import Colors from "../constants/Colors";
+import { Colors, TextContent } from "../constants";
 
 export default function TodoList() {
   const { locked, todos, toggleTodo, updateTodo, deleteTodo } =
@@ -54,6 +54,27 @@ export default function TodoList() {
           </Pressable>
         </View>
       ))}
+      {locked && (
+        <View
+          style={[
+            styles.listRow,
+            {
+              backgroundColor: Colors[colorScheme ?? "light"].lock,
+              borderRadius: 8,
+            },
+          ]}
+        >
+          <Text
+            style={{
+              textAlign: "center",
+              color: Colors[colorScheme ?? "light"].text,
+              fontWeight: "600",
+            }}
+          >
+            {TextContent.unlockMsg}
+          </Text>
+        </View>
+      )}
     </View>
   );
 }
